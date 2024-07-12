@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="_11.StorePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_11.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="LightBlue">
+
+    <Page.Resources>
+        <local:PriceConverter x:Key="PriceConverter"/>
+       
+ 
+    </Page.Resources>
+
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            <GridView x:Name="ProductGrid" ItemsSource="{x:Bind Products}" Margin="12"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Product">
+                        <Grid Width="200" Height="300" Margin="6" Background ="White">
+                            <StackPanel>
+                                <!-- Изображение продукта -->
+                                <Image Source="{x:Bind ImagePath}" Stretch="UniformToFill" Height="150"/>
+
+                                <!-- Название продукта -->
+                                <TextBlock Text="{x:Bind Name}" Style="{StaticResource BodyTextBlockStyle}"
+                                           TextWrapping="Wrap" Margin="6"/>
+
+                                <!-- Цена продукта -->
+                                <TextBlock Text="{x:Bind Price, Converter={StaticResource PriceConverter}}"
+                                           Style="{StaticResource CaptionTextBlockStyle}" Margin="6"/>
+
+                                <!-- Кнопка "Добавить в корзину" -->
+                                <Button Content="Добавить в корзину" Click="AddToCart_Click"
+                                        HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="6"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid />
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
+        </ScrollViewer>
+    </Grid>
+</Page>
