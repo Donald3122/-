@@ -118,7 +118,6 @@
   <ItemGroup>
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\CartProduct.cs" />
-    <Compile Include="Models\Global.cs" />
     <Compile Include="Models\PriceConverter.cs" />
     <Compile Include="ViewModel\CartViewModel.cs" />
     <Compile Include="View\App.xaml.cs">

@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\Donald\source\repos\11\11\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>81D667BF47DB0CE727AC899CBA0D94F512F6C6E18DAFAD5406AAE867C7E55F12</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>E32EB0136DF23428C1BB0C30929CAD865500BF63701FAB8B6E82CA34B5049A41</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>0c708f5b-7327-4b46-8835-4c4767bff9fa_1.0.0.0_x86__kbdm0j06kkr0p</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>0c708f5b-7327-4b46-8835-4c4767bff9fa_kbdm0j06kkr0p!App</RegisteredUserModeAppID>
     <RegisteredPackageID>0c708f5b-7327-4b46-8835-4c4767bff9fa</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-07-12T08:30:59.627</Modified>
+      <Modified>2024-07-16T01:58:29.304</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\11.exe">
       <PackagePath>entrypoint\11.exe</PackagePath>
-      <Modified>2024-07-12T08:30:58.958</Modified>
+      <Modified>2024-07-16T01:58:28.719</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\.nuget\packages\communitytoolkit.mvvm\8.2.2\lib\netstandard2.0\CommunityToolkit.Mvvm.dll">
       <PackagePath>CommunityToolkit.Mvvm.dll</PackagePath>
@@ -292,7 +292,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Assets\SplashScreen.scale-400.jpg">
       <PackagePath>Assets\SplashScreen.scale-400.jpg</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2024-07-12T08:30:19.257</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Properties\Default.rd.xml">
@@ -301,23 +300,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\11.xr.xml">
       <PackagePath>11.xr.xml</PackagePath>
-      <Modified>2024-07-12T06:02:10.536</Modified>
+      <Modified>2024-07-16T01:58:28.605</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\View\App.xbf">
       <PackagePath>View\App.xbf</PackagePath>
-      <Modified>2024-07-12T08:30:58.864</Modified>
+      <Modified>2024-07-16T01:58:28.611</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\View\CartPage.xbf">
       <PackagePath>View\CartPage.xbf</PackagePath>
-      <Modified>2024-07-12T08:30:58.864</Modified>
+      <Modified>2024-07-16T01:58:28.611</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2024-07-12T08:30:58.864</Modified>
+      <Modified>2024-07-16T01:58:28.611</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\View\StorePage.xbf">
       <PackagePath>View\StorePage.xbf</PackagePath>
-      <Modified>2024-07-12T08:30:58.864</Modified>
+      <Modified>2024-07-16T01:58:28.611</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -325,11 +324,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-07-12T08:30:59.212</Modified>
+      <Modified>2024-07-16T01:17:46.980</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\Core\11.exe">
       <PackagePath>11.exe</PackagePath>
-      <Modified>2024-07-12T08:30:59.623</Modified>
+      <Modified>2024-07-16T01:58:29.304</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

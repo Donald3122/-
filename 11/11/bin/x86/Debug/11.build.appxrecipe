@@ -220,7 +220,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Assets\SplashScreen.scale-400.jpg">
       <PackagePath>Assets\SplashScreen.scale-400.jpg</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>

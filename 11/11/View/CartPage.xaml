@@ -22,8 +22,8 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                    <TextBlock x:Name="TotalProductsText" Text="{x:Bind TotalProducts, Mode=OneWay}" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="TotalCostText" Text="{x:Bind TotalCost, Mode=OneWay}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBlock x:Name="TotalProductsText" Text="Количество продуктов: 0" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="TotalCostText" Text="Общая стоимость: 0.00 ₽" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                 </Grid>
 
             <!-- Область списка добавленных продуктов с полосой прокрутки -->

@@ -32,7 +32,7 @@ namespace _11
             }
         }
 
-        private void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        private async void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             if (args.IsSettingsSelected)
             {
@@ -51,7 +51,8 @@ namespace _11
                             break;
                         case "Cart":
                             ContentFrame.Navigate(typeof(CartPage));
-                           
+
+
                             break;
                         default:
                             System.Diagnostics.Debug.WriteLine("Неизвестный тег: " + item.Tag.ToString());

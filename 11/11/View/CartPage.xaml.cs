@@ -11,23 +11,48 @@ namespace _11
     public sealed partial class CartPage : Page
     {
         public List<CartProduct> CartProducts { get; set; }
-       public int TotalProducts = Global.b;
-       public decimal TotalCost = Global.a;
+
+        private int _totalProducts;
+        public int TotalProducts
+        {
+            get => _totalProducts;
+            set
+            {
+                _totalProducts = value;
+                if (TotalProductsText != null) // Проверка на null
+                {
+                    TotalProductsText.Text = $"Количество продуктов: {TotalProducts}";
+                }
+            }
+        }
+
+        private decimal _totalCost;
+        public decimal TotalCost
+        {
+            get => _totalCost;
+            set
+            {
+                _totalCost = value;
+                if (TotalCostText != null) // Проверка на null
+                {
+                    TotalCostText.Text = $"Общая стоимость: {TotalCost:C}";
+                }
+            }
+        }
+
         public CartPage()
         {
             this.InitializeComponent();
             _ = LoadProductsAsync();
-             
         }
-        
-        private async Task LoadProductsAsync()
+
+        public async Task LoadProductsAsync()
         {
             CartProducts = await DatabaseHelper.GetCartProducts();
             ProductListView.ItemsSource = CartProducts;
-            TotalProductsText.Text = $"Количество продуктов: {TotalProducts}";
-            TotalCostText.Text = $"Общая стоимость ={TotalCost:C}";
 
-
+            TotalProducts = await DatabaseHelper.Quantity();
+            TotalCost = await DatabaseHelper.TotalCost();
         }
 
         private async void RemovCart_Click(object sender, RoutedEventArgs e)
@@ -35,19 +60,21 @@ namespace _11
             var selectedProduct = (CartProduct)ProductListView.SelectedItem;
             if (selectedProduct != null)
             {
-                // Удаляем выбраный продукт из корзины
+                // Удаляем выбранный продукт из корзины
                 await DatabaseHelper.RemoveFromCart(selectedProduct.Id);
+
                 // Выводим сообщение для подтверждения
                 var dialog = new ContentDialog
                 {
                     Title = "Продукт удален",
-                    Content = $"{selectedProduct.Name} Удален из корзины.",
+                    Content = $"{selectedProduct.Name} удален из корзины.",
                     CloseButtonText = "ОК"
                 };
                 await dialog.ShowAsync();
+
+                // Обновляем список продуктов и счетчики
+                await LoadProductsAsync();
             }
-             
-            _ = LoadProductsAsync();
         }
     }
 }

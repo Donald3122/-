@@ -22,8 +22,8 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                    <TextBlock x:ConnectionId='10' x:Name="TotalProductsText"                                            Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBlock x:ConnectionId='11' x:Name="TotalCostText"                                        Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <TextBlock x:ConnectionId='10' x:Name="TotalProductsText" Text="Количество продуктов: 0" VerticalAlignment="Center"/>
+                    <TextBlock x:ConnectionId='11' x:Name="TotalCostText" Text="Общая стоимость: 0.00 ₽" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                 </Grid>
 
             <!-- Область списка добавленных продуктов с полосой прокрутки -->
