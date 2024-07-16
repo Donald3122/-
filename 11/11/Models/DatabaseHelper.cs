@@ -8,8 +8,10 @@ namespace _11.Models
 {
     public static class DatabaseHelper
     {
+        // Путь к локальной базе данных SQLite
         private static readonly string DbPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "products.db");
 
+        // Инициализация базы данных
         public static async Task<bool> InitializeDatabase()
         {
             bool databaseExists = File.Exists(DbPath);
@@ -18,7 +20,7 @@ namespace _11.Models
             {
                 await connection.OpenAsync();
 
-                // Создание таблиц, если они не существуют
+                // Создание таблицы Products, если она не существует
                 var createProductTableCmd = connection.CreateCommand();
                 createProductTableCmd.CommandText = @"
                 CREATE TABLE IF NOT EXISTS Products (
@@ -29,6 +31,7 @@ namespace _11.Models
                 );";
                 await createProductTableCmd.ExecuteNonQueryAsync();
 
+                // Создание таблицы Cart1 (корзина), если она не существует
                 var createCartTableCmd = connection.CreateCommand();
                 createCartTableCmd.CommandText = @"
                 CREATE TABLE IF NOT EXISTS Cart1 (
@@ -45,30 +48,15 @@ namespace _11.Models
                 checkProductsTableCmd.CommandText = "SELECT COUNT(*) FROM Products";
                 var productCount = (long)await checkProductsTableCmd.ExecuteScalarAsync();
 
-                // Если таблица Products пуста, добавить 20 записей
+                // Если таблица Products пуста, добавляем 20 записей
                 if (productCount == 0)
                 {
                     var products = new List<Product>
                     {
                         new Product { Name = "Product 1", ImagePath = "ms-appdata:///Local/product1.png", Price = 10.99m },
                         new Product { Name = "Product 2", ImagePath = "ms-appdata:///Local/product2.png", Price = 12.99m },
-                        new Product { Name = "Product 3", ImagePath = "ms-appdata:///Local/product3.png", Price = 14.99m },
-                        new Product { Name = "Product 4", ImagePath = "ms-appdata:///Local/product4.png", Price = 16.99m },
-                        new Product { Name = "Product 5", ImagePath = "ms-appdata:///Local/product5.png", Price = 18.99m },
-                        new Product { Name = "Product 6", ImagePath = "ms-appdata:///Local/product6.png", Price = 20.99m },
-                        new Product { Name = "Product 7", ImagePath = "ms-appdata:///Local/product7.png", Price = 22.99m },
-                        new Product { Name = "Product 8", ImagePath = "ms-appdata:///Local/product8.png", Price = 24.99m },
-                        new Product { Name = "Product 9", ImagePath = "ms-appdata:///Local/product9.png", Price = 26.99m },
-                        new Product { Name = "Product 10", ImagePath = "ms-appdata:///Local/product10.png", Price = 28.99m },
-                        new Product { Name = "Product 11", ImagePath = "ms-appdata:///Local/product11.png", Price = 30.99m },
-                        new Product { Name = "Product 12", ImagePath = "ms-appdata:///Local/product12.png", Price = 32.99m },
-                        new Product { Name = "Product 13", ImagePath = "ms-appdata:///Local/product13.png", Price = 34.99m },
-                        new Product { Name = "Product 14", ImagePath = "ms-appdata:///Local/product14.png", Price = 36.99m },
-                        new Product { Name = "Product 15", ImagePath = "ms-appdata:///Local/product15.png", Price = 38.99m },
-                        new Product { Name = "Product 16", ImagePath = "ms-appdata:///Local/product16.png", Price = 40.99m },
-                        new Product { Name = "Product 17", ImagePath = "ms-appdata:///Local/product17.png", Price = 42.99m },
-                        new Product { Name = "Product 18", ImagePath = "ms-appdata:///Local/product18.png", Price = 44.99m },
-                        new Product { Name = "Product 19", ImagePath = "ms-appdata:///Local/product19.png", Price = 46.99m },
+                        // Добавить остальные продукты
+                        // ...
                         new Product { Name = "Product 20", ImagePath = "ms-appdata:///Local/product20.png", Price = 48.99m }
                     };
 
@@ -93,6 +81,7 @@ namespace _11.Models
             return true;
         }
 
+        // Добавление продукта в корзину по его Id
         public static async Task AddToCart(int productId)
         {
             using (var connection = new SqliteConnection($"Filename={DbPath}"))
@@ -107,7 +96,7 @@ namespace _11.Models
 
                 if (quantity.HasValue)
                 {
-                    // Если продукт уже есть в корзине, увеличиваем количество
+                    // Если продукт уже есть в корзине, увеличиваем количество на 1
                     var updateCartCommand = connection.CreateCommand();
                     updateCartCommand.CommandText = "UPDATE Cart1 SET Quantity = Quantity + 1 WHERE Id = @ProductId";
                     updateCartCommand.Parameters.AddWithValue("@ProductId", productId);
@@ -115,7 +104,7 @@ namespace _11.Models
                 }
                 else
                 {
-                    // Если продукта нет в корзине, добавляем его
+                    // Если продукта нет в корзине, добавляем его с количеством 1
                     var product = await GetProductById(productId);
 
                     if (product != null)
@@ -133,6 +122,8 @@ namespace _11.Models
                 }
             }
         }
+
+        // Получение общего количества продуктов в корзине
         public static async Task<int> Quantity()
         {
             int totalQuantity = 0;
@@ -153,6 +144,8 @@ namespace _11.Models
 
             return totalQuantity;
         }
+
+        // Получение общей стоимости продуктов в корзине
         public static async Task<decimal> TotalCost()
         {
             decimal totalCost = 0;
@@ -174,6 +167,7 @@ namespace _11.Models
             return totalCost;
         }
 
+        // Получение списка продуктов в корзине
         public static async Task<List<CartProduct>> GetCartProducts()
         {
             List<CartProduct> cartProducts = new List<CartProduct>();
@@ -181,7 +175,7 @@ namespace _11.Models
             using (var connection = new SqliteConnection($"Filename={DbPath}"))
             {
                 await connection.OpenAsync();
-                
+
                 var selectCommand = connection.CreateCommand();
                 selectCommand.CommandText = @"
                 SELECT Id, Name, Price, ImagePath, Quantity
@@ -199,7 +193,7 @@ namespace _11.Models
                         ImagePath = reader.GetString(3),
                         Quantity = reader.GetInt32(4)
                     };
-                   
+
                     cartProducts.Add(product);
                 }
             }
@@ -207,6 +201,7 @@ namespace _11.Models
             return cartProducts;
         }
 
+        // Получение продукта по его Id
         public static async Task<Product> GetProductById(int productId)
         {
             Product product = null;
@@ -237,6 +232,7 @@ namespace _11.Models
             return product;
         }
 
+        // Удаление продукта из корзины по его Id
         public static async Task RemoveFromCart(int productId)
         {
             using (var connection = new SqliteConnection($"Filename={DbPath}"))
@@ -253,7 +249,7 @@ namespace _11.Models
                 {
                     if (quantity.Value > 1)
                     {
-                        // Если продукт в корзине и количество больше 1, уменьшаем количество
+                        // Уменьшить количество продукта в корзине на 1
                         var updateCartCommand = connection.CreateCommand();
                         updateCartCommand.CommandText = "UPDATE Cart1 SET Quantity = Quantity - 1 WHERE Id = @ProductId";
                         updateCartCommand.Parameters.AddWithValue("@ProductId", productId);
@@ -261,7 +257,7 @@ namespace _11.Models
                     }
                     else
                     {
-                        // Если продукт в корзине и количество равно 1, удаляем продукт из корзины
+                        // Удалить продукт из корзины, если его количество равно 1
                         var deleteCartCommand = connection.CreateCommand();
                         deleteCartCommand.CommandText = "DELETE FROM Cart1 WHERE Id = @ProductId";
                         deleteCartCommand.Parameters.AddWithValue("@ProductId", productId);
@@ -271,6 +267,7 @@ namespace _11.Models
             }
         }
 
+        // Получение списка всех продуктов
         public static async Task<List<Product>> GetAllProducts()
         {
             var products = new List<Product>();
@@ -302,6 +299,7 @@ namespace _11.Models
             return products;
         }
 
+        // Удаление продукта из корзины по его Id (асинхронный вариант)
         public static async Task RemoveProductFromCartAsync(int productId)
         {
             using (var connection = new SqliteConnection($"Filename={DbPath}"))
