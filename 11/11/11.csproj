@@ -120,7 +120,7 @@
     <Compile Include="Models\CartProduct.cs" />
     <Compile Include="Models\PriceConverter.cs" />
     <Compile Include="ViewModel\CartViewModel.cs" />
-    <Compile Include="View\App.xaml.cs">
+    <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CartPage.xaml.cs">
@@ -144,8 +144,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\dlya-magazina-ital-yanskaya-gitara-krasivaya-muzyka.mp3" />
     <Content Include="Assets\images 2.png" />
     <Content Include="Assets\images.jpg" />
+    <Content Include="Assets\Phon.gif" />
     <Content Include="Assets\product1.png" />
     <Content Include="Assets\product10.png" />
     <Content Include="Assets\product11.png" />
@@ -165,6 +167,8 @@
     <Content Include="Assets\product7.png" />
     <Content Include="Assets\product8.png" />
     <Content Include="Assets\product9.png" />
+    <Content Include="Assets\Rick Astley - Never Gonna Give You Up.mp3" />
+    <Content Include="Assets\Shop.gif" />
     <Content Include="Assets\SplashScreen.scale-400.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -176,7 +180,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="View\App.xaml">
+    <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>

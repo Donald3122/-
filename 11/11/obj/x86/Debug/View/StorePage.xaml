@@ -10,34 +10,105 @@
 
     <Page.Resources>
         <local:PriceConverter x:Key="PriceConverter"/>
-       
- 
+
+        <!-- Стиль для кнопки "Добавить в корзину" -->
+        <Style x:Key="AddToCartButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="Padding" Value="35"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="RootBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder"
+                                                                           Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="LightGray"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder"
+                                                                           Storyboard.TargetProperty="Height">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="50"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                           Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Black"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                           Storyboard.TargetProperty="FontSize">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder"
+                                                                           Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Black"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                           Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="White"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder"
+                                                                           Storyboard.TargetProperty="Height">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="60"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                           Storyboard.TargetProperty="FontSize">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="16"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="ContentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
 
     <Grid>
+        <Image Source="ms-appx:///Assets/Phon.gif" Stretch="UniformToFill" />
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-            <GridView x:ConnectionId='2' x:Name="ProductGrid"                                 Margin="12"
+            <GridView x:ConnectionId='8' x:Name="ProductGrid"                                 Margin="12"
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                       ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <GridView.ItemTemplate>
                     <DataTemplate                           >
-                        <Grid x:ConnectionId='4' Width="200" Height="300" Margin="6" Background ="White">
+                        <Grid x:ConnectionId='10' Width="200" Height="300" Margin="6" Background ="White" Opacity="0.9">
                             <StackPanel>
                                 <!-- Изображение продукта -->
-                                <Image x:ConnectionId='5'                             Stretch="UniformToFill" Height="150"/>
+                                <Image x:ConnectionId='11'                             Stretch="UniformToFill" Height="150"/>
 
                                 <!-- Название продукта -->
-                                <TextBlock x:ConnectionId='6'                      Style="{StaticResource BodyTextBlockStyle}"
+                                <TextBlock x:ConnectionId='12'                      Style="{StaticResource BodyTextBlockStyle}"
                                            TextWrapping="Wrap" Margin="6"/>
 
                                 <!-- Цена продукта -->
-                                <TextBlock x:ConnectionId='7'                                                                 
+                                <TextBlock x:ConnectionId='13'                                                                 
                                            Style="{StaticResource CaptionTextBlockStyle}" Margin="6"/>
 
                                 <!-- Кнопка "Добавить в корзину" -->
-                                <Button x:ConnectionId='8' Content="Добавить в корзину"                        
-                                        HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="6"/>
+                                <Button x:ConnectionId='14' Content="Добавить в корзину"
+                                        Style="{StaticResource AddToCartButtonStyle}"
+                                                               
+                                        HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                        Margin="6"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

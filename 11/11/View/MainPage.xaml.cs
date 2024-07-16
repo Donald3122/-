@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -9,12 +11,31 @@ namespace _11
 {
     public sealed partial class MainPage : Page
     {
-
+        private MediaPlayer mediaPlayer;
         public MainPage()
         {
             this.InitializeComponent();
             InitializeDatabaseAndNavigate();
+            PlayBackgroundMusic();
         }
+        private void PlayBackgroundMusic()
+        {
+            mediaPlayer = new MediaPlayer();
+
+            // Загрузка аудиофайла из Assets
+            var uri = new Uri("ms-appx:///Assets/dlya-magazina-ital-yanskaya-gitara-krasivaya-muzyka.mp3");
+            var mediaSource = MediaSource.CreateFromUri(uri);
+
+            mediaPlayer.Source = mediaSource;
+            mediaPlayer.IsLoopingEnabled = true; // Повторение воспроизведения
+            mediaPlayer.Play();
+        }
+        protected override void OnNavigatedFrom(Windows.UI.Xaml.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            mediaPlayer?.Dispose(); // Освобождение ресурсов при завершении страницы
+        }
+
 
         private async void InitializeDatabaseAndNavigate()
         {

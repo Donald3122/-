@@ -9,6 +9,7 @@
     Background="LightBlue">
 
     <Grid>
+
         <NavigationView x:ConnectionId='2' x:Name="NavView" Windows10version1809:PaneDisplayMode="Left"                                             >
             <NavigationView.MenuItems>
                 <NavigationViewItem Content="Магазин" Tag="Store">

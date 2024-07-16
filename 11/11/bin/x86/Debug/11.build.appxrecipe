@@ -130,6 +130,12 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.22621.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Assets\dlya-magazina-ital-yanskaya-gitara-krasivaya-muzyka.mp3">
+      <PackagePath>Assets\dlya-magazina-ital-yanskaya-gitara-krasivaya-muzyka.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Assets\Rick Astley - Never Gonna Give You Up.mp3">
+      <PackagePath>Assets\Rick Astley - Never Gonna Give You Up.mp3</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Assets\images 2.png">
       <PackagePath>Assets\images 2.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -221,14 +227,20 @@
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Assets\SplashScreen.scale-400.jpg">
       <PackagePath>Assets\SplashScreen.scale-400.jpg</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Assets\Phon.gif">
+      <PackagePath>Assets\Phon.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Assets\Shop.gif">
+      <PackagePath>Assets\Shop.gif</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\11.xr.xml">
       <PackagePath>11.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\View\App.xbf">
-      <PackagePath>View\App.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Donald\source\repos\11\11\bin\x86\Debug\View\CartPage.xbf">
       <PackagePath>View\CartPage.xbf</PackagePath>

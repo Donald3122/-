@@ -1,7 +1,9 @@
 WinMetadata\Windows.winmd
+Assets\dlya-magazina-ital-yanskaya-gitara-krasivaya-muzyka.mp3
 Assets\images 2.png
 Assets\images.jpg
 Assets\LockScreenLogo.scale-200.png
+Assets\Phon.gif
 Assets\product1.png
 Assets\product10.png
 Assets\product11.png
@@ -21,6 +23,8 @@ Assets\product6.png
 Assets\product7.png
 Assets\product8.png
 Assets\product9.png
+Assets\Rick Astley - Never Gonna Give You Up.mp3
+Assets\Shop.gif
 Assets\SplashScreen.scale-200.png
 Assets\SplashScreen.scale-400.jpg
 Assets\Square150x150Logo.scale-200.png
@@ -29,7 +33,7 @@ Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 11.xr.xml
-View\App.xbf
+App.xbf
 View\CartPage.xbf
 View\MainPage.xbf
 View\StorePage.xbf
